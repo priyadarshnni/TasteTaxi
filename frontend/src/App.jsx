@@ -1,17 +1,16 @@
-import { React, useState } from 'react' 
-import Navbar from './components/Navbar/Navbar'
-import { Route, Router, Routes } from 'react-router-dom'
-import Cart from './pages/Cart/Cart'
-import Home from './pages/Home/home'
-import PlaceOrder from './pages/placeOrder/placeOrder'
-import Footer from './components/Footer/Footer'
-import LoginPopup from './components/LoginPopup/LoginPopup'
-import StoreContextProvider from './context/StoreContext';
-
+import { React, useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import { Route, Router, Routes } from "react-router-dom";
+import Cart from "./pages/Cart/Cart";
+import Home from "./pages/Home/home";
+import PlaceOrder from "./pages/placeOrder/placeOrder";
+import Footer from "./components/Footer/Footer";
+import LoginPopup from "./components/LoginPopup/LoginPopup";
+import StoreContextProvider from "./context/StoreContext";
+import FoodCalendar from "./components/FoodCalendar/FoodCalendar";
 
 const App = () => {
-
-const [showLogin, setShowLogin]= useState(false)
+  const [showLogin, setShowLogin] = useState(false);
 
   return (
     <StoreContextProvider>
@@ -22,14 +21,12 @@ const [showLogin, setShowLogin]= useState(false)
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
+          <Route path="/calendar" element={<FoodCalendar />} />
         </Routes>
-        
       </div>
-      <Footer/>
+      <Footer />
     </StoreContextProvider>
   );
-}
+};
 
-
-
-export default App
+export default App;

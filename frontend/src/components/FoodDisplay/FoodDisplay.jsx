@@ -21,8 +21,12 @@ const FoodDisplay = ({ category = "All" }) => {
       console.error("Invalid food item:", item);
       return false;
     }
-    return category === "All" || item.category === category;
+    return (
+      category.toLowerCase() === "all" ||
+      item.category.toLowerCase() === category.toLowerCase()
+    );
   });
+
 
   // Handle case where no items match the selected category
   if (filteredFoodList.length === 0) {

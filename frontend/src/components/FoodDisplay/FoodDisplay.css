@@ -14,3 +14,8 @@
     gap: 30px;
     row-gap:50px;
 }
+section.scrollIntoView({ behavior: "smooth", block: "start" });
+// Add offset logic manually if needed
+.food-display {
+  scroll-margin-top: 80px; /* Adjust to match your navbar height */
+}

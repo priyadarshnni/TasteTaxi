@@ -5,17 +5,17 @@ import { menu_list } from "../../../assets/assets";
 const ExploreMenu = ({ category, setCategory }) => {
   console.log("menu_list >>>> ", menu_list);
 
-  const handleMenuClick = (menuName) => {
-    // Update the category
-    setCategory((prev) => (prev === menuName ? "All" : menuName));
+ const handleMenuClick = (menuName) => {
+   setCategory(menuName);
 
-    // Scroll to the corresponding section
-    const sectionId = menuName.toLowerCase().replace(/\s+/g, "-"); // Convert menu name to a valid id
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+   // Scroll to food section after short delay
+   setTimeout(() => {
+     const section = document.querySelector(".food-display");
+     if (section) {
+       section.scrollIntoView({ behavior: "smooth", block: "start" });
+     }
+   }, 100);
+ };
 
   return (
     <div className="explore-menu" id="explore-menu">

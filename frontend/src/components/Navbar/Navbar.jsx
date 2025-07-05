@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
+import { scroller } from "react-scroll";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
@@ -30,28 +31,100 @@ const Navbar = ({ setShowLogin }) => {
         >
           home
         </Link>
-        <a
-          href="#explore-menu" // This link navigates to the ExploreMenu section
-          onClick={() => setMenu("menu")}
+
+        <Link
+          to="/"
+          onClick={() => {
+            setMenu("menu");
+            if (location.pathname !== "/") {
+              navigate("/");
+              setTimeout(() => {
+                scroller.scrollTo("explore-menu", {
+                  duration: 800,
+                  delay: 0,
+                  smooth: "easeInOutQuart",
+                  offset: -70, // adjust based on navbar height
+                });
+              }, 100);
+            } else {
+              scroller.scrollTo("explore-menu", {
+                duration: 800,
+                delay: 0,
+                smooth: "easeInOutQuart",
+                offset: -70,
+              });
+            }
+          }}
           className={menu === "menu" ? "active" : ""}
         >
           menu
-        </a>
-        <a
-          href="#app-download"
-          onClick={() => setMenu("mobile-app")}
+        </Link>
+
+        <Link
+          to="/"
+          onClick={() => {
+            setMenu("mobile-app");
+            if (location.pathname !== "/") {
+              navigate("/");
+              setTimeout(() => {
+                scroller.scrollTo("mobile-app", {
+                  duration: 800,
+                  delay: 0,
+                  smooth: "easeInOutQuart",
+                  offset: -70, // adjust based on navbar height
+                });
+              }, 100);
+            } else {
+              scroller.scrollTo("mobile-app", {
+                duration: 800,
+                delay: 0,
+                smooth: "easeInOutQuart",
+                offset: -70,
+              });
+            }
+          }}
           className={menu === "mobile-app" ? "active" : ""}
         >
           mobile-app
-        </a>
-        <a
-          href="#footer"
-          onClick={() => setMenu("contact-us")}
+        </Link>
+        <Link
+          to="/"
+          onClick={() => {
+            setMenu("contact-us");
+            if (location.pathname !== "/") {
+              navigate("/");
+              setTimeout(() => {
+                scroller.scrollTo("contact-us", {
+                  duration: 800,
+                  delay: 0,
+                  smooth: "easeInOutQuart",
+                  offset: -70, // adjust based on navbar height
+                });
+              }, 100);
+            } else {
+              scroller.scrollTo("contact-us", {
+                duration: 800,
+                delay: 0,
+                smooth: "easeInOutQuart",
+                offset: -70,
+              });
+            }
+          }}
           className={menu === "contact-us" ? "active" : ""}
         >
-          contact us
-        </a>
+          contact-us
+        </Link>
+
+        {/* ✅ Meal Planner */}
+        <Link
+          to="/calendar"
+          onClick={() => setMenu("calendar")}
+          className={menu === "calendar" ? "active" : ""}
+        >
+          meal planner
+        </Link>
       </ul>
+
       <div className="navbar-right">
         <div className="navbar-search-icon">
           <Link to="/cart">
